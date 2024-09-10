@@ -58,6 +58,7 @@ class BlogApiControllerTest {
         final String requestBody = objectMapper.writeValueAsString(userRequest);
 
         // when
+        // 클라이언트에서 content에 Json을 넘겨줄 때는 Application_json_value를 설정해야하나?
         ResultActions result = mockMvc.perform(post(url).contentType(MediaType.APPLICATION_JSON_VALUE)
                 .content(requestBody));
 
