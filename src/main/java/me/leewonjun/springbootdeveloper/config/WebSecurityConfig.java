@@ -40,10 +40,11 @@ public class WebSecurityConfig {
                                 new AntPathRequestMatcher("/signup"),
                                 new AntPathRequestMatcher("/user")
                         ).permitAll()
-                        .anyRequest().authenticated()).formLogin(formLogin -> formLogin
-                        .loginPage("/login")
-                        .defaultSuccessUrl("/articles")
-                )
+                        .anyRequest().authenticated())
+                .formLogin(formLogin -> formLogin
+                        .loginPage("/login") // 로그인 페이지
+                        .defaultSuccessUrl("/articles") // 로그인 성공시 url
+                ) // 요청시 자동으로 /login으로 redirect
                 .logout(logout -> logout
                         .logoutSuccessUrl("/login")
                         .invalidateHttpSession(true)

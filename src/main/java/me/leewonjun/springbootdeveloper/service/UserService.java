@@ -12,7 +12,7 @@ import org.springframework.stereotype.Service;
 public class UserService {
 
     private final UserRepository userRepository;
-    private final BCryptPasswordEncoder bCryptPasswordEncoder;
+    private final BCryptPasswordEncoder bCryptPasswordEncoder; // Bean으로 등록해 줌. WebSecurityConfig
 
     public Long save(AddUserRequest dto) {
         return userRepository.save(User.builder()
