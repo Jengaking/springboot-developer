@@ -15,3 +15,16 @@ spring:
   h2:
     console:
       enabled: true
+
+  security:
+    oauth2:
+      client:
+        registration:
+          google:
+            scope:
+              - email
+              - profile
+
+jwt:
+  issuer: dnjswns648@naver.com
+  secret_key: study-springboot
