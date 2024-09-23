@@ -28,7 +28,7 @@ public class CookieUtil {
             if(name.equals(cookie.getName())) {
                 cookie.setValue("");
                 cookie.setPath("/");
-                cookie.setMaxAge(0);
+                cookie.setMaxAge(0); // 쿠키가 바로 만료되도록 만료 기한을 0으로 함.
                 response.addCookie(cookie);
             }
         }

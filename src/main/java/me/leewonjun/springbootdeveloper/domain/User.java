@@ -28,7 +28,7 @@ public class User implements UserDetails { // UserDetails를 상속받아 인증
     @Column(name = "password")
     private String password;
 
-    @Column(name = "ninkname", unique = true)
+    @Column(name = "nickname", unique = true)
     private String nickname;
 
     @Builder

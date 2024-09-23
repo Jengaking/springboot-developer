@@ -13,8 +13,9 @@ public class AddArticleRequest {
     private String title;
     private String content;
 
-    public Article toEntiry() {
+    public Article toEntiry(String author) {
         return Article.builder()
+                .author(author)
                 .content(content)
                 .title(title)
                 .build();
