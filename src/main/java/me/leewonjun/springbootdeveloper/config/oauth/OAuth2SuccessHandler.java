@@ -37,7 +37,14 @@ public class OAuth2SuccessHandler extends SimpleUrlAuthenticationSuccessHandler 
     @Override
     public void onAuthenticationSuccess(HttpServletRequest request, HttpServletResponse response, Authentication authentication) throws IOException{
         OAuth2User oAuth2User = (OAuth2User)authentication.getPrincipal();
-        String user_email = Objects.requireNonNullElse((String)oAuth2User.getAttributes().get("email"),(String)((Map<String, Object>)(oAuth2User.getAttributes().get("kakao_account"))).get("email"));
+        Map<String, Object> attributes = oAuth2User.getAttributes();
+        String user_email = "";
+
+        if(attributes.containsKey("email")) {
+            user_email = (String)attributes.get("email");
+        }else {
+            user_email = (String)((Map<String, Object>)attributes.get("kakao_account")).get("email");
+        }
         User user = userService.findByEmail(user_email);
 
         // 리프레시 토큰 생성 -> 저장 -> 쿠키에 저장
