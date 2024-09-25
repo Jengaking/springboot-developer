@@ -30,8 +30,8 @@ spring:
               - profile_nickname
               - account_email
           google:
-            client-id: 1051374346250-8rtntqtmth9q3n4f22mmjtb021gnau7a.apps.googleusercontent.com
-            client-secret: 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
+            client-id: test_id
+            client-secret: test_secret
             scope:
               - email
               - profile
@@ -44,4 +44,4 @@ spring:
 
 jwt:
   issuer: dnjswns648@naver.com
-  secret_key: study-springboot
+  secret_key: test_key
